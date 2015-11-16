@@ -4,7 +4,7 @@ import source from "vinyl-source-stream";
 
 gulp.task("default", () => {
 
-  return browserify("src/app.js.es6")
+  return browserify("src/app.js")
     .transform("babelify", {presets: ["es2015"]})
     .bundle()
     .pipe(source("bundle.js"))

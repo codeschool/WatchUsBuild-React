@@ -13,5 +13,5 @@ Starter code for using Babel with Gulp to transpile ES2015.
 Run `gulp` from the command line and you are good to go!
 
 The project is currently setup to transpile code under the _/src_ folder using the
-_/src/app.js.es6_ file as an entry point.
+_/src/app.js_ file as an entry point.
 
