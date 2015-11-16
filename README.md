@@ -1,6 +1,7 @@
 # Babel with Gulp
 
-Starter code for using Babel with Gulp to transpile ES2015.
+Starter code for transpiling ES2015 (including modules) with Babel, Gulp and Browserify.
+
 
 # Installing
 
