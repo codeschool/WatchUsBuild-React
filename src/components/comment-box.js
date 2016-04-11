@@ -23,14 +23,19 @@ export default class CommentBox extends React.Component {
   render() {
     const comments = this._getComments();
     return(
-      <div className="comment-box">
-        <CommentForm addComment={this._addComment.bind(this)} />
-        <CommentAvatarList avatars={this._getAvatars()} />
+      <div className="row comments-container">
+        <div className="cell">
+          <h2>Join The Discussion</h2>
+          <div className="comment-box">
+            <CommentForm addComment={this._addComment.bind(this)} />
+            <CommentAvatarList avatars={this._getAvatars()} />
 
-        {this._getPopularMessage(comments.length)}
-        <h3 className="comment-count">{this._getCommentsTitle(comments.length)}</h3>
-        <div className="comment-list">
-          {comments}
+            {this._getPopularMessage(comments.length)}
+            <h3 className="comment-count">{this._getCommentsTitle(comments.length)}</h3>
+            <div className="comment-list">
+              {comments}
+            </div>
+          </div>
         </div>
       </div>
     );
