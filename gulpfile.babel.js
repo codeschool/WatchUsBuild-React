@@ -39,11 +39,16 @@ gulp.task('default', ['transpile']);
 gulp.task('transpile', ['lint'], () => bundle());
 
 gulp.task('lint', () => {
-    return gulp.src(['src/**/*.js'])
+    return gulp.src(['src/**/*.js', 'gulpfile.babel.js'])
       .pipe(eslint())
       .pipe(eslint.format())
 });
 
 gulp.task('serve', ['transpile'], () => sync.init({ server: 'dist' }))
-gulp.task('watch', ['serve'], () => gulp.watch('src/**/*', ['js-watch']))
 gulp.task('js-watch', ['transpile'], () => sync.reload());
+
+gulp.task('watch', ['serve'], () => {
+  gulp.watch('src/**/*', ['js-watch'])
+  gulp.watch('dist/assets/style.css', sync.reload)
+  gulp.watch('dist/assets/index.html', sync.reload)
+})
