@@ -1,5 +1,11 @@
-import FlashMessage from "./flash-message";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import CommentBox from './components/comment-box';
 
-let flash = new FlashMessage("Hello from ES2015, Babel and Gulp!");
-flash.display();
-
+// Render when document is ready
+document.addEventListener('DOMContentLoaded', function() {
+  ReactDOM.render(
+    <CommentBox />,
+    document.getElementById('comment-box')
+  );
+});
