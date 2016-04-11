@@ -29,9 +29,9 @@ function bundle() {
       console.error( '\nError: ', error.message, '\n');
       this.emit('end');
     })
-    .pipe(exorcist('dist/assets/js/bundle.js.map'))
+    .pipe(exorcist('public/assets/js/bundle.js.map'))
     .pipe(source('bundle.js'))
-    .pipe(gulp.dest('dist/assets/js'));
+    .pipe(gulp.dest('public/assets/js'));
 }
 
 gulp.task('default', ['transpile']);
@@ -44,11 +44,11 @@ gulp.task('lint', () => {
       .pipe(eslint.format())
 });
 
-gulp.task('serve', ['transpile'], () => sync.init({ server: 'dist' }))
+gulp.task('serve', ['transpile'], () => sync.init({ server: 'public' }))
 gulp.task('js-watch', ['transpile'], () => sync.reload());
 
 gulp.task('watch', ['serve'], () => {
   gulp.watch('src/**/*', ['js-watch'])
-  gulp.watch('dist/assets/style.css', sync.reload)
-  gulp.watch('dist/assets/index.html', sync.reload)
+  gulp.watch('public/assets/style.css', sync.reload)
+  gulp.watch('public/assets/index.html', sync.reload)
 })
