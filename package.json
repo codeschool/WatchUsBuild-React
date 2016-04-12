@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp watch"
+    "start": "gulp watch",
+    "demo": "NODE_ENV=production gulp demo"
   },
   "author": "Carlos Souza <carloshrsouza@gmail.com> (http://csouza.me/)",
   "license": "ISC",
