@@ -1,11 +1,13 @@
 import gulp from 'gulp';
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
 import eslint from 'gulp-eslint';
 import exorcist from 'exorcist';
 import browserSync from 'browser-sync';
 import watchify from 'watchify';
 import babelify from 'babelify';
+import uglify from 'gulp-uglify';
 
 watchify.args.debug = true;
 
@@ -31,6 +33,8 @@ function bundle() {
     })
     .pipe(exorcist('public/assets/js/bundle.js.map'))
     .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(uglify())
     .pipe(gulp.dest('public/assets/js'));
 }
 
