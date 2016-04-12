@@ -466,8 +466,9 @@ p {
 
 .article--picture-img,
 .article--video-img {
-  width: 500px;
   margin: auto;
+  max-width: 100%;
+  width: 500px;
 }
 
 .article--picture-img > img,
@@ -573,6 +574,16 @@ p {
   width: 154px;
 }
 
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+  .comment-form::before {
+    background-size: 100%;
+    top: -63px;
+    width: 90px;
+  }
+}
+
 .comment-form-actions > button {
   background-color: #fce87c;
   border: 0;
@@ -675,7 +686,7 @@ p {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1;
 }
 
@@ -695,9 +706,9 @@ p {
 
 .top-menu > ul > li a {
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .top-menu > ul > li a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
