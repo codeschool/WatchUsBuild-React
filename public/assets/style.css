@@ -455,6 +455,26 @@ p {
   text-align: center;
 }
 
+.article--picture-author {
+  border-bottom: 2px solid #6BA2AA;
+  color: #6BA2AA;
+  font-size: 16px;
+  padding: 0 20px 20px;
+  margin: 0 0 30px;
+  text-transform: uppercase;
+}
+
+.article--picture-img,
+.article--video-img {
+  width: 500px;
+  margin: auto;
+}
+
+.article--picture-img > img,
+.article--video-img > img {
+  max-width: 100%;
+}
+
 .cell {
   margin: 0 auto;
   max-width: 800px;
@@ -645,4 +665,44 @@ p {
   border-radius: 50%;
   height: 64px;
   width: 64px;
+}
+
+.top-menu {
+  height: 35px;
+}
+
+.top-menu > ul {
+  background-color: #3E7780;
+  margin: 0;
+  padding: 5px 10px;
+  list-style: none;
+  text-align:center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.top-menu > ul > li {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 0 15px 0 10px;
+  border-right: 1px solid white;
+  font-size: 14px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.top-menu > ul > li:last-child {
+  border: none;
+}
+
+.top-menu > ul > li a {
+  color: white;
+  text-decoration: none;
+}
+
+.top-menu > ul > li a:hover {
+  text-decoration: underline;
 }
