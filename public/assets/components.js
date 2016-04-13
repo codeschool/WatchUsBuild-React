@@ -257,7 +257,7 @@ class CommentRemoveConfirmation extends React.Component {
   }
 }
 
-$(function() {
+jQuery(function() {
   ReactDOM.render(
     <CommentBox />,
     document.getElementById('comment-box')
