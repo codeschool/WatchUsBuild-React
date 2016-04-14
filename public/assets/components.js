@@ -72,7 +72,7 @@ class CommentBox extends React.Component {
 
   _addComment(commentAuthor, commentBody) {
 
-    let comment = {
+    const comment = {
       id: this.state.comments.length + 1,
       author: commentAuthor,
       body: commentBody,
