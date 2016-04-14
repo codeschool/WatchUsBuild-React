@@ -8,6 +8,7 @@ import browserSync from 'browser-sync';
 import watchify from 'watchify';
 import babelify from 'babelify';
 import uglify from 'gulp-uglify';
+import ifElse from 'gulp-if-else';
 
 watchify.args.debug = true;
 
@@ -34,7 +35,7 @@ function bundle() {
     .pipe(exorcist('public/assets/js/bundle.js.map'))
     .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(uglify())
+    .pipe(ifElse(process.env.NODE_ENV === 'production', uglify))
     .pipe(gulp.dest('public/assets/js'));
 }
 
@@ -54,7 +55,7 @@ gulp.task('js-watch', ['transpile'], () => sync.reload());
 gulp.task('watch', ['serve'], () => {
   gulp.watch('src/**/*', ['js-watch'])
   gulp.watch('public/assets/style.css', sync.reload)
-  gulp.watch('public/assets/index.html', sync.reload)
+  gulp.watch('public/index.html', sync.reload)
 })
 
 gulp.task('demo', ['transpile'], () => {
