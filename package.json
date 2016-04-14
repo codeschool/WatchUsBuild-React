@@ -34,6 +34,7 @@
     "exorcist": "^0.4.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^2.0.0",
+    "gulp-if-else": "^1.0.3",
     "gulp-uglify": "^1.5.3",
     "jquery": "^2.2.2",
     "react": "^15.0.1",
