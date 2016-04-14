@@ -500,6 +500,11 @@ p {
   text-transform: uppercase;
 }
 
+.comment-actions > a,
+.comment-actions > span {
+  margin-left: 15px;
+}
+
 .comment-actions a {
   color: #9ecbd2;
   text-decoration: underline;
