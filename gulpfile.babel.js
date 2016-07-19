@@ -49,11 +49,16 @@ gulp.task('lint', () => {
       .pipe(eslint.format())
 });
 
-gulp.task('serve', ['transpile'], () => sync.init({ server: 'public' }))
+gulp.task('serve', ['transpile'], () => sync.init({
+  server: 'public',
+  port: process.env.PORT || 8000,
+  host: process.env.IP || 'localhost'
+}));
+
 gulp.task('js-watch', ['transpile'], () => sync.reload());
 
 gulp.task('watch', ['serve'], () => {
   gulp.watch('src/**/*', ['js-watch'])
   gulp.watch('public/assets/style.css', sync.reload)
   gulp.watch('public/index.html', sync.reload)
-})
+});
