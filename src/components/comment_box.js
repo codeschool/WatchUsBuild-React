@@ -1,8 +1,8 @@
 import React from 'react';
 import jQuery from 'jquery';
 
-import CommentForm from './comment-form';
-import CommentAvatarList from './comment-avatar-list';
+import CommentForm from './comment_form';
+import CommentAvatarList from './comment_avatar_list';
 import Comment from './comment';
 
 export default class CommentBox extends React.Component {
@@ -38,6 +38,7 @@ export default class CommentBox extends React.Component {
           </div>
         </div>
       </div>
+
     );
   }
 
@@ -48,18 +49,21 @@ export default class CommentBox extends React.Component {
   _getPopularMessage(commentCount) {
     const POPULAR_COUNT = 10;
     if (commentCount > POPULAR_COUNT) {
-       return (
-         <div>This post is getting really popular, dont miss out!</div>
-       );
+      return (
+        <div>This post is getting really popular, dont miss out!</div>
+      );
     }
   }
 
   _getComments() {
     return this.state.comments.map((comment) => {
       return <Comment
-               {...comment}
+               id={comment.id}
+               author={comment.author}
+               body={comment.body}
+               avatarUrl={comment.avatarUrl}
                onDelete={this._deleteComment.bind(this)}
-               key={comment.id} />
+               key={comment.id} />;
     });
   }
 
@@ -75,7 +79,7 @@ export default class CommentBox extends React.Component {
 
   _addComment(commentAuthor, commentBody) {
 
-    let comment = {
+    const comment = {
       id: this.state.comments.length + 1,
       author: commentAuthor,
       body: commentBody,
@@ -93,7 +97,7 @@ export default class CommentBox extends React.Component {
       method: 'GET',
       url: 'comments.json',
       success: (comments) => {
-        this.setState({ comments })
+        this.setState({ comments });
       }
     });
   }

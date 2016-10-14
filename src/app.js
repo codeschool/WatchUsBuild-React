@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CommentBox from './components/comment-box';
+import jQuery from 'jquery';
+import CommentBox from './components/comment_box';
 
-// Render when document is ready
-document.addEventListener('DOMContentLoaded', function() {
+
+jQuery(function() {
   ReactDOM.render(
     <CommentBox />,
-    document.getElementById('comment-box')
+    document.getElementById('comment-box'),
+    function() {
+      console.timeEnd('react_app');
+    }
   );
 });

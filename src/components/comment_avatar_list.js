@@ -5,10 +5,6 @@ export default class CommentAvatarList extends React.Component {
 
     const { avatars = [] } = this.props;
 
-    if (!avatars.length) {
-      return null;
-    }
-
     return (
       <div className="comment-avatars">
         <h4>Authors</h4>
@@ -20,6 +16,6 @@ export default class CommentAvatarList extends React.Component {
           ))}
         </ul>
       </div>
-    )
+    );
   }
 }
