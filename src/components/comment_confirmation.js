@@ -20,7 +20,7 @@ export default class CommentRemoveConfirmation extends React.Component {
         </span>
       );
     } else {
-      confirmNode = <a href="" onClick={this._toggleConfirmMessage.bind(this)}>Delete comment?</a>;
+      confirmNode = <a href="" onClick={this._toggleConfirmMessage.bind(this)}>{this.props.children}</a>;
     }
 
     return (
@@ -41,6 +41,6 @@ export default class CommentRemoveConfirmation extends React.Component {
 
   _confirmDelete(e) {
     e.preventDefault();
-    this.props.onDelete();
+    this.props.onConfirm();
   }
 }
