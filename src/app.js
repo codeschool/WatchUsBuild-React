@@ -4,11 +4,11 @@ import jQuery from 'jquery';
 
 import {hashHistory, Router, Route, Redirect} from 'react-router';
 
-import Layout from './layout/layout'
+import Layout from './layout/layout';
 
-import BlogPage from './pages/blog'
-import PicturePage from './pages/picture'
-import VideoPage from './pages/video'
+import BlogPage from './pages/blog';
+import PicturePage from './pages/picture';
+import VideoPage from './pages/video';
 
 const app = (
   <Router history={hashHistory}>
@@ -19,14 +19,14 @@ const app = (
       <Route path="video" component={VideoPage} />
     </Route>
   </Router>
-)
+);
 
 jQuery(function() {
   ReactDOM.render(
     app,
     document.getElementById('comment-box'),
     function() {
-      console.timeEnd('react-app')
+      console.timeEnd('react-app');
     }
   );
-})
+});
