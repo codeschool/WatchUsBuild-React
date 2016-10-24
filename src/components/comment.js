@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CommentConfirmation from './comment-confirmation';
+import CommentConfirmation from './comment_confirmation';
 
 export default class Comment extends React.Component {
   constructor() {
@@ -39,6 +39,7 @@ export default class Comment extends React.Component {
 
           <CommentConfirmation onConfirm={this._toggleAbuse}>
             Report as Abuse
+
           </CommentConfirmation>
         </div>
       </div>
