@@ -12,7 +12,6 @@ export default class Comment extends React.Component {
 
     this._handleDelete = this._handleDelete.bind(this);
     this._toggleAbuse = this._toggleAbuse.bind(this);
-
   }
 
   render() {

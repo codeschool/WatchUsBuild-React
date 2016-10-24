@@ -38,6 +38,6 @@ export default class BlogPage extends React.Component {
 
         <CommentBox apiUrl="api/blog/comments.json" />
       </div>
-    )
+    );
   }
 }

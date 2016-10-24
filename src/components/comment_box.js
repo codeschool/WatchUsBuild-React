@@ -1,8 +1,8 @@
 import React from 'react';
 import jQuery from 'jquery';
 
-import CommentForm from './comment-form';
-import CommentAvatarList from './comment-avatar-list';
+import CommentForm from './comment_form';
+import CommentAvatarList from './comment_avatar_list';
 import Comment from './comment';
 
 export default class CommentBox extends React.Component {
@@ -14,9 +14,6 @@ export default class CommentBox extends React.Component {
       showComments: false,
       comments: []
     };
-
-    this._deleteComment = this._deleteComment.bind(this);
-    this._addComment = this._addComment.bind(this);
   }
 
   componentWillMount() {
@@ -30,7 +27,7 @@ export default class CommentBox extends React.Component {
         <div className="cell">
           <h2>Join The Discussion</h2>
           <div className="comment-box">
-            <CommentForm addComment={this._addComment} />
+            <CommentForm addComment={this._addComment.bind(this)} />
             <CommentAvatarList avatars={this._getAvatars()} />
 
             {this._getPopularMessage(comments.length)}
@@ -54,15 +51,18 @@ export default class CommentBox extends React.Component {
     if (commentCount > POPULAR_COUNT) {
       return (
         <div>This post is getting really popular, dont miss out!</div>
-       );
+      );
     }
   }
 
   _getComments() {
     return this.state.comments.map((comment) => {
       return <Comment
-               {...comment}
-               onDelete={this._deleteComment}
+               id={comment.id}
+               author={comment.author}
+               body={comment.body}
+               avatarUrl={comment.avatarUrl}
+               onDelete={this._deleteComment.bind(this)}
                key={comment.id} />;
     });
   }
@@ -95,7 +95,7 @@ export default class CommentBox extends React.Component {
   _fetchComments() {
     jQuery.ajax({
       method: 'GET',
-      url: this.props.apiUrl,
+      url: 'comments.json',
       success: (comments) => {
         this.setState({ comments });
       }
@@ -110,7 +110,3 @@ export default class CommentBox extends React.Component {
     this.setState({ comments });
   }
 }
-
-CommentBox.propTypes = {
-  apiUrl: React.PropTypes.string.isRequired
-};

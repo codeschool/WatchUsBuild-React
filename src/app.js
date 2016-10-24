@@ -13,20 +13,20 @@ import VideoPage from './pages/video';
 const app = (
   <Router history={hashHistory}>
     <Redirect from="/" to="/blog" />
-    <Route path="/" component={Layout}>
-      <Route path="blog" component={BlogPage} />
-      <Route path="picture" component={PicturePage} />
-      <Route path="video" component={VideoPage} />
-    </Route>
-  </Router>
-);
+   <Route path="/" component={Layout}>
+     <Route path="blog" component={BlogPage} />
+     <Route path="picture" component={PicturePage} />
+     <Route path="video" component={VideoPage} />
+   </Route>
+ </Router>
+ );
 
 jQuery(function() {
   ReactDOM.render(
-    app,
-    document.getElementById('comment-box'),
-    function() {
-      console.timeEnd('react-app');
-    }
+   app,
+   document.getElementById('comment-box'),
+   function() {
+     console.timeEnd('react-app');
+   }
   );
 });

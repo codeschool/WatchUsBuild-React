@@ -19,6 +19,6 @@ export default class PicturePage extends React.Component {
 
         <CommentBox apiUrl="api/pictures/comments.json" />
       </div>
-    )
+    );
   }
 }
