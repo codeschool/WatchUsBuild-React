@@ -1,3 +1,5 @@
+# Code base to practice with React following a Code School tutorial.
+
 # Babel with Gulp
 
 Starter code for transpiling ES2015 (including modules) with Babel, Gulp and Browserify.
