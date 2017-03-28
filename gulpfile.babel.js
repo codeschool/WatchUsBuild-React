@@ -44,9 +44,9 @@ gulp.task('default', ['transpile']);
 gulp.task('transpile', ['lint'], () => bundle());
 
 gulp.task('lint', () => {
-    return gulp.src(['src/**/*.js', 'gulpfile.babel.js'])
-      .pipe(eslint())
-      .pipe(eslint.format())
+  return gulp.src(['src/**/*.js', 'gulpfile.babel.js'])
+    .pipe(eslint())
+    .pipe(eslint.format());
 });
 
 gulp.task('serve', ['transpile'], () => sync.init({
@@ -58,7 +58,8 @@ gulp.task('serve', ['transpile'], () => sync.init({
 gulp.task('js-watch', ['transpile'], () => sync.reload());
 
 gulp.task('watch', ['serve'], () => {
-  gulp.watch('src/**/*', ['js-watch'])
-  gulp.watch('public/assets/style.css', sync.reload)
-  gulp.watch('public/index.html', sync.reload)
+
+  gulp.watch('src/**/*', ['js-watch']);
+  gulp.watch('public/assets/style.css', sync.reload);
+  gulp.watch('public/index.html', sync.reload);
 });
